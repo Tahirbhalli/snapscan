@@ -8,6 +8,11 @@ Rails.application.routes.draw do
       match 'authentication' => 'user#auth', via: [:post]
     end
   end
-
+  resources :profile, only: [:index] do
+    member do
+    end
+    collection do
+    end
+  end
   root 'user#index'
 end
