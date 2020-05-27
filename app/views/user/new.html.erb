@@ -1,6 +1,6 @@
 <main class="text-center">
     <h3 class="pb-4 pt-3 text-center">Snapscan</h3>
-    <form action="<%= authentication_user_index_path %>" method="POST" class="container">
+    <form action="<%= user_index_path %>" method="POST" class="container">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <div class="form-group">
         <input name="name" type="text" class="form-control" required placeholder="Enter name" id="name">
@@ -15,7 +15,7 @@
         <input name="cpassword" type="password" class="form-control" required placeholder="confirm password" id="cpwd">
       </div>
     
-      <button type="submit" class="btn btn-primary container">Submit</button>
+      <button type="submit" class="btn btn-primary container mb-1">Submit</button>
 
     </form>
 </main>

@@ -5,19 +5,17 @@
 body {
     background-color: #9a9292!important;
 }
-main{
+main {
+    background-color: blanchedalmond!important;
+    min-height: 300px;
+    left: 50%;
     position: fixed;
     top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%);
-    height: 300px;
     width: 300px!important;
-    background-color: blanchedalmond!important;
 }
-.btm{
-    position: fixed;
+.btm {
     bottom: 25%;
+    position: fixed;
     width: 90%;
 }
-
-
