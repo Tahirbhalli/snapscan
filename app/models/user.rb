@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    has_many :transactions
-    has_many :groups
-    has_many :particpents
+  has_many :transactions
+  has_many :groups
+  has_many :particpents
 end
