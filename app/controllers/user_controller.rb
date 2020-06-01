@@ -31,7 +31,7 @@ class UserController < ApplicationController
 
   private
 
-  def create_session(id = '', name = '', email = '', url = '')
+  def create_session(id = '', name = '', email = '', url = 'logo.jpeg')
     session[:current_user] = id
     session[:user_email] = email
     session[:user_name] = name

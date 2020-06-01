@@ -1,18 +1,32 @@
 class ProfileController < ApplicationController
   before_action :check_session
   def index
-    # session[:current_user]=1
+    @curent=User.find(session[:current_user])
   end
-
+  def new
+    @transac=Transaction.new
+  end
+  def create
+    @curent=User.find(session[:current_user])
+    @transac=@curent.transactions.create(name: params[:name],amount: params[:amount])
+    redirect_to profile_index_path
+  end
+  def group_create
+    @curent=User.find(session[:current_user])
+    @new_group=@curent.groups.create(params[:current_user])
+    redirect_to profile_index_path
+  end
   def logout
     destroy_session
     redirect_to user_index_path
   end
 
   def transactions
-    @tran = User.find(session[:current_user])
+    @tran = User.find(session[:current_user]).transactions
   end
-
+ 
+  def newgroup
+  end
   private
 
   def destroy_session

@@ -8,9 +8,10 @@
       <div class="form-group">
         <input name="password" type="password" class="form-control" required placeholder="Enter password" id="pwd">
       </div>
-      <span class="text-danger"><%=flash[:msg]%></span>
-    
-      <button type="submit" class="btn btn-primary container">Submit</button>
+      <%if !flash[:msg].nil?%>
+      <span class="alert alert-danger"><%=flash[:msg]%></span>
+    <%end%>
+      <button type="submit" class="btn btn-primary container pt-1">Submit</button>
 
     </form>
 </main>

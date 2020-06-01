@@ -38,8 +38,8 @@
     </section>
     <section class="float-right w-75 bg-primary">
     <div class="float-right p-3">
-     <a href="" class="badge font-weight-bold">Create Transaction</a>
-     <a href="" class="badge font-weight-bold">Create Group</a>
+     <a href="<%= new_tansaction_profile_path(session[:current_user]) %>" class="badge font-weight-bold">Create Transaction</a>
+     <a href="<%= new_group_profile_path(session[:current_user]) %>" class="badge font-weight-bold">Create Group</a>
      <a href="<%= logout_profile_index_path %>" class="badge font-weight-bold">Logout</a>
     </div>
     </section>
