@@ -1,3 +1,20 @@
 // Place all the styles related to the profile controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+body {
+    background-color: white!important;
+    
+}
+
+.side-nav {
+    bottom: 0;
+    padding-top: 1rem;
+    position: absolute;
+    top: 0;
+}
+
+.pic {
+    height: 150px;
+    width: 150px;
+}

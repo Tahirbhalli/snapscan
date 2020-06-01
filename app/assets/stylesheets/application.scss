@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+a{
+    text-decoration: none;
+    color: #fff!important;
+}
+a:hover{
+    text-decoration: none;
+}
+li:first-child{
+    border-top: 2px black solid;
+}
+li{
+    border-bottom: 2px black solid;
+}
+li a:hover{
+    color: black!important;
+}

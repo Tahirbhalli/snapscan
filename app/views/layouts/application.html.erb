@@ -4,14 +4,50 @@
     <title>Snapscan</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag :application, controller_name %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/b124683f80.js" crossorigin="anonymous"></script>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="text-white">
+  
+    <% if !session[:current_user].nil?%>
+    <section class="bg-primary side-nav w-25">
+       <a href="">
+            <div class="container-fluid text-center mb-4">    
+                <img src="<%= image_url('logo.jpeg') %>" alt="logo" class="pb-2 mx-auto d-block h-25 w-25 img-fluid rounded-circle">
+                <span class="text-white badge"><%= session[:user_name] %></span>
+            </div>
+        </a>
+        <ul class="nav flex-column text-center font-weight-bold">
+           <li class="nav-item">
+             <a class="nav-link active" href="<%= all_transactions_profile_path(session[:current_user])%>">All my transactions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">All my external transactions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">All groups</a>
+            </li>
+        </ul>
+        
+    </section>
+    <section class="float-right w-75 bg-primary">
+    <div class="float-right p-3">
+     <a href="" class="badge font-weight-bold">Create Transaction</a>
+     <a href="" class="badge font-weight-bold">Create Group</a>
+     <a href="<%= logout_profile_index_path %>" class="badge font-weight-bold">Logout</a>
+    </div>
+    </section>
+    <%end%>
+    <main class="col-9 float-right p-2">
+      <%= yield %>
+    </main>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
