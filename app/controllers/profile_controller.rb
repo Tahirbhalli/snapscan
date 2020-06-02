@@ -20,6 +20,17 @@ class ProfileController < ApplicationController
     redirect_to profile_index_path
   end
 
+  def join
+    res = Particpent.exists?(user_id: session[:current_user], group_id: params[:id])
+    if res
+      obj = Particpent.where(user_id: session[:current_user], group_id: params[:id])
+      Particpent.destroy(obj.ids)
+    else
+      Particpent.create(user_id: session[:current_user], group_id: params[:id])
+    end
+    redirect_to all_groups_profile_path(session[:current_user])
+  end
+
   def logout
     destroy_session
     redirect_to user_index_path
