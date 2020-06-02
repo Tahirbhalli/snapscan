@@ -15,13 +15,15 @@
         <td><%= item.name%></td>
         <td><%= item.created_at%></td>
         <td>nil</td>
-        <td><a href="<%= join_profile_path(:id => item.id)%>" class="btn btn-success"><%= isjoined(session[:current_user],item.id)%></a></td>
+        <td>
+        <a href="<%= join_profile_path(:id => item.id)%>" class="btn btn-success"><%= isjoined(session[:current_user],item.id)%></a>
+        <a href="<%= add_transaction_profile_path( :id => item.id ) %>" class="btn btn-success">Add Transactions</a>
+        </td>
       </tr>
       <%end%>
     </tbody>
   </table>
   <div class="container">
     <a href="<%= new_group_profile_path(session[:current_user]) %>" class="btn btn-primary badge text-capitalize text-center">new Group</a>
-    <a href="btn btn-primary badge text-capitalize text-center"></a>
   </div>
 </div>

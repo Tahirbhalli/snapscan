@@ -1,14 +1,14 @@
 <div class="container-fluid text-body mt-2">
     <h3 class="text-center font-weight-bold pb-4">Create new Group</h3>
-<form action="<%= create_group_profile_index_path %>" method="POST" class="w-50 mx-auto">
+  <form action="<%= create_group_profile_index_path %>" method="POST" class="w-50 mx-auto">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <div class="form-group">
       Create Group: <input name="name" type="text" class="form-control" required placeholder="Enter Name of transaction" id="name">
     </div>
+     <input type="file" id="cover_pic" name="cover_pic" accept="image/*">
     <%if !flash[:msg].nil?%>
-    <span class="alert alert-danger text-center"><%=flash[:msg]%></span>
-  <%end%>
+      <span class="alert alert-danger text-center"><%= flash[:msg] %></span>
+    <%end%>
     <button type="submit" class="d-flex btn btn-primary mx-auto">Submit</button>
-
   </form>
 </div>

@@ -5,4 +5,9 @@ module ProfileHelper
 
     'Leave'
   end
+  def groupsmeb(group_id,t_id)
+    result=Groupmember.exists?(group_id: group_id,transactions_id: t_id)
+    return 'Join' unless result
+    'Remove'
+  end
 end

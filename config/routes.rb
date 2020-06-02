@@ -13,7 +13,9 @@ Rails.application.routes.draw do
      match '/all/groups' => 'profile#groups', via: [:get]
      match '/new/tansaction' => 'profile#new', via: [:get]
      match '/new/group' => 'profile#newgroup', via: [:get]
-     match 'join' => 'profile#join', via:[:get]
+     match '/join' => 'profile#join', via:[:get]
+     match '/add_transaction' => 'profile#add', via: [:get]
+     match '/added' => 'profile#added', via: [:get]
     end
     collection do
       match '/create_group' => 'profile#group_create', via: [:post]
