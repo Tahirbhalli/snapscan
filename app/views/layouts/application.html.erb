@@ -28,10 +28,10 @@
              <a class="nav-link active" href="<%= all_transactions_profile_path(session[:current_user])%>">All my transactions</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">All my external transactions</a>
+              <a class="nav-link" href="<%= external_transaction_profile_path(session[:current_user])%>">All my external transactions</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">All groups</a>
+              <a class="nav-link" href="<%=all_groups_profile_path(session[:current_user])%>">All groups</a>
             </li>
         </ul>
         

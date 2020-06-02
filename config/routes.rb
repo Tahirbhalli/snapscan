@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     member do
      match '/all/transactions' => 'profile#transactions', via: [:get]
      match 'external/transaction' => 'profile#external', via: [:get]
+     match '/all/groups' => 'profile#groups', via: [:get]
      match '/new/tansaction' => 'profile#new', via: [:get]
      match '/new/group' => 'profile#newgroup', via: [:get]
     end

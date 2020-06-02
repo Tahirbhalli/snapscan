@@ -16,7 +16,7 @@ class ProfileController < ApplicationController
 
   def group_create
     @curent = User.find(session[:current_user])
-    @new_group = @curent.groups.create(params[:current_user])
+    @new_group = @curent.groups.create(name: params[:name])
     redirect_to profile_index_path
   end
 
@@ -27,6 +27,15 @@ class ProfileController < ApplicationController
 
   def transactions
     @tran = User.find(session[:current_user]).transactions
+  end
+  def external
+    @external = User.find(session[:current_user]).transactions
+  end
+  def groups
+    @groups=Group.all
+    #@curent=User.find(session[:current_user])
+    #@groups=@curent.groups
+    
   end
 
   def newgroup; end
