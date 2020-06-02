@@ -19,20 +19,22 @@ class ProfileController < ApplicationController
     @new_group = @curent.groups.create(name: params[:name])
     redirect_to profile_index_path
   end
+
   def add
-    @tr=Transaction.all
+    @tr = Transaction.all
   end
+
   def added
-    if Groupmember.exists?(transactions_id: params[:t_id],group_id: params[:g_id])
-      obj=Groupmember.where(transactions_id: params[:t_id],group_id: params[:g_id])
+    if Groupmember.exists?(transactions_id: params[:t_id], group_id: params[:g_id])
+      obj = Groupmember.where(transactions_id: params[:t_id], group_id: params[:g_id])
       obj.destroy
     else
-      obj=Groupmember.new(transactions_id: params[:t_id],group_id: params[:g_id])
-      byebug
+      obj = Groupmember.new(transactions_id: params[:t_id], group_id: params[:g_id])
       obj.save
     end
     redirect_to all_groups_profile_path(session[:current_user])
   end
+
   def join
     res = Particpent.exists?(user_id: session[:current_user], group_id: params[:id])
     if res
