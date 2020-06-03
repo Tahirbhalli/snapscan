@@ -12,9 +12,11 @@
     <tbody>
       <% @groups.each do |item| %>
       <tr>
-        <td><%= item.name%></td>
+        <td><a href="<%= group_tansaction_profile_path(item.id)%>" class="text-body"><%= item.name%></a></td>
         <td><%= item.created_at%></td>
-        <td>nil</td>
+        
+        <td><img src="<%=url_for(item.cover_pic) if item.cover_pic.attached?%>" class="img"/>
+        </td>
         <td>
         <a href="<%= join_profile_path(:id => item.id)%>" class="btn btn-success"><%= isjoined(session[:current_user],item.id)%></a>
         <a href="<%= add_transaction_profile_path( :id => item.id ) %>" class="btn btn-success">Add Transactions</a>

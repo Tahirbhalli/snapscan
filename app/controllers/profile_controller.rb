@@ -16,7 +16,8 @@ class ProfileController < ApplicationController
 
   def group_create
     @curent = User.find(session[:current_user])
-    @new_group = @curent.groups.create(name: params[:name])
+    @new_group = @curent.groups.create(group_param)
+    # @new_group = @curent.groups.create(name: params[:name])
     redirect_to profile_index_path
   end
 
@@ -25,11 +26,12 @@ class ProfileController < ApplicationController
   end
 
   def added
-    if Groupmember.exists?(transactions_id: params[:t_id], group_id: params[:g_id])
-      obj = Groupmember.where(transactions_id: params[:t_id], group_id: params[:g_id])
-      obj.destroy
+    if Groupmember.exists?(transaction_id: params[:t_id], group_id: params[:g_id])
+      obj = Groupmember.where(transaction_id: params[:t_id], group_id: params[:g_id])
+      Groupmember.destroy(obj.ids)
+
     else
-      obj = Groupmember.new(transactions_id: params[:t_id], group_id: params[:g_id])
+      obj = Groupmember.new(transaction_id: params[:t_id], group_id: params[:g_id])
       obj.save
     end
     redirect_to all_groups_profile_path(session[:current_user])
@@ -44,6 +46,10 @@ class ProfileController < ApplicationController
       Particpent.create(user_id: session[:current_user], group_id: params[:id])
     end
     redirect_to all_groups_profile_path(session[:current_user])
+  end
+
+  def grouptrans
+    @result = Transaction.where(id: Groupmember.where(group_id: params[:id]).select('transaction_id'))
   end
 
   def logout
@@ -65,9 +71,15 @@ class ProfileController < ApplicationController
     # @groups=@curent.groups
   end
 
-  def newgroup; end
+  def newgroup
+    @group = Group.new
+  end
 
   private
+
+  def group_param
+    params.require(:group).permit(:name, :cover_pic)
+  end
 
   def destroy_session
     session[:current_user] = nil

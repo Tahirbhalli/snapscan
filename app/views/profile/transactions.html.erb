@@ -15,7 +15,16 @@
         <td><%= item.name%></td>
         <td><%=item.amount%></td>
         <td><%= item.created_at%></td>
-        <td>nil</td>
+       
+       <%
+       if Groupmember.exists?(transaction_id: item.id)
+       obj=Groupmember.where(transaction_id: item.id).first
+       grou=Group.where(id: obj.group_id).first
+       else
+       grou=Group.new
+       end
+       %>
+        <td><img src="<%= url_for(grou.cover_pic) if grou.cover_pic.attached? %>" class="img" /></td>
       </tr>
       <%end%>
     </tbody>
