@@ -10,5 +10,6 @@ user=50.times{
     name=Faker::Name.unique.name
     email=Faker::Internet.email
     pass='12345678'
-    User.create(name: name,email: email,password: pass)
+    balance=123
+    User.create(name: name,email: email,password: pass,balance: balance)
 }
