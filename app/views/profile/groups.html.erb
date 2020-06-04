@@ -1,6 +1,6 @@
 <div class="pt-3 container text-body">
     <h4 class="text-center pt-3 pb-2 font-weight-bold text-capitalize"><%= session[:user_name] %> Groups</h4>
-    <table class="pt-3 table table-striped">
+  <table class="pt-3 table table-striped">
     <thead>
       <tr>
         <th>Transactions</th>
@@ -15,7 +15,7 @@
         <td><a href="<%= group_tansaction_profile_path(item.id)%>" class="text-body"><%= item.name%></a></td>
         <td><%= item.created_at%></td>
         
-        <td><img src="<%=url_for(item.cover_pic) if item.cover_pic.attached?%>" class="img"/>
+        <td><img src="<%= url_for(item.cover_pic) if item.cover_pic.attached?%>" class="img"/>
         </td>
         <td>
         <a href="<%= join_profile_path(:id => item.id)%>" class="btn btn-success"><%= isjoined(session[:current_user],item.id)%></a>

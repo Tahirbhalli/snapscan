@@ -17,7 +17,7 @@
   
     <% if !session[:current_user].nil?%>
     <section class="bg-primary side-nav w-25">
-       <a href="">
+       <a href="<%=profile_index_path%>">
             <div class="container-fluid text-center mb-4">    
                 <img src="<%= image_url('logo.jpeg') %>" alt="logo" class="pb-2 mx-auto d-block h-25 w-25 img-fluid rounded-circle">
                 <span class="text-white badge"><%= session[:user_name] %></span>

@@ -7,10 +7,15 @@ class UserController < ApplicationController
   end
 
   def create
-    @user = User.new(name: params[:name], email: params[:email], password: params[:password])
-    @user.save
-    create_session(@user.id, params[:name], params[:password])
-    redirect_to profile_index_path
+    if params[:password] != params[:cpassword]
+      flash[:msg] = 'password no match'
+      redirect_to new_user_path
+    else
+      @user = User.new(name: params[:name], email: params[:email], password: params[:password])
+      @user.save
+      create_session(@user.id, params[:name], params[:password])
+      redirect_to profile_index_path
+    end
   end
 
   def login
