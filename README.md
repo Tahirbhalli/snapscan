@@ -1,24 +1,30 @@
-# README
+# SnapScan
+- This is a website for managing you expenses   
+# What it does
+- Create Transaction
+- Create Group
+- Add Transaction in groups
+# Built With
+- Ruby
+- Ruby on Rails
+- VSCode
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Author
 
-Things you may want to cover:
+👤 **Tahir Ahmad**
 
-* Ruby version
+- Github: [@tahirbhalli](https://github.com/Tahirbhalli)
+- Twitter: [@tahirbhalli](https://twitter.com/tahirbhalli)
+- Linkedin: [Tahir Ahmad](https://www.linkedin.com/in/tahir-ahmad-483035164/)
 
-* System dependencies
+# 🤝 Contributing
+Contributions, issues and feature requests are welcome!
 
-* Configuration
+# Show your support
+Give a ⭐️ if you like this project!
 
-* Database creation
+📝 License
 
-* Database initialization
+Check out my stories on medium to see what I'm talking about! Follow me on Instagram and Twitter to see what I am up to!
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Enjoy!
