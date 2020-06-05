@@ -13,8 +13,8 @@ describe 'Post controller and view spec', type: :feature do
     click_button 'commit'
     visit 'profile/1/new/tansaction'
     within('form') do
-      fill_in 'name',	with: 'xyz'
-      fill_in 'amount',	with: '12'
+      fill_in 'name', with: 'xyz'
+      fill_in 'amount', with: '12'
     end
     click_button 'submit'
     visit 'profile/51/all/transactions'
