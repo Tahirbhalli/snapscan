@@ -1,25 +1,24 @@
 class UserController < ApplicationController
   before_action :check_session
   def index; end
-
   def def(_new)
     @user = User.new
   end
 
   def create
     if params[:password] != params[:cpassword]
-      flash[:msg] = 'password no match'
+      flash[:msg] = 'password not match'
       redirect_to new_user_path
     else
-      @user = User.new(name: params[:name], email: params[:email], password: params[:password])
+      @user=User.new(user_param)
       @user.save
-      create_session(@user.id, params[:name], params[:password])
+      create_session(@user.id, params[:name], params[:email])
       redirect_to profile_index_path
     end
   end
 
   def login
-    # redirect_to home_user_path(session[:current_user]) if isuser?
+    @user=User.new
   end
 
   def auth
@@ -46,9 +45,11 @@ class UserController < ApplicationController
   def login_params
     params.require(:user).permit(:email, :password)
   end
+  def user_param
+    params.permit(:name,:email,:password)
+  end
 
   def check_session
-    # byebug
     redirect_to profile_index_path unless session[:current_user].nil?
   end
 end
