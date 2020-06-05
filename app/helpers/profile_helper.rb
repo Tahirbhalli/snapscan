@@ -12,14 +12,14 @@ module ProfileHelper
 
     'Remove'
   end
+
   def img_link(tid)
     if Groupmember.exists?(transactin_id: tid)
-      obj=Groupmember.where(transactin_id: tid).first
-      grou=Group.where(id: obj.group_id).first
-      return image_tag(url_for(grou.cover_pic), class: "img")
+      obj = Groupmember.where(transactin_id: tid).first
+      grou = Group.where(id: obj.group_id).first
+      image_tag(url_for(grou.cover_pic), class: 'img')
     else
-      return 'no photo'
+      'no photo'
     end
-
   end
 end

@@ -1,6 +1,7 @@
 class UserController < ApplicationController
   before_action :check_session
   def index; end
+
   def def(_new)
     @user = User.new
   end
@@ -10,7 +11,7 @@ class UserController < ApplicationController
       flash[:msg] = 'password not match'
       redirect_to new_user_path
     else
-      @user=User.new(user_param)
+      @user = User.new(user_param)
       @user.save
       create_session(@user.id, params[:name], params[:email])
       redirect_to profile_index_path
@@ -18,7 +19,7 @@ class UserController < ApplicationController
   end
 
   def login
-    @user=User.new
+    @user = User.new
   end
 
   def auth
@@ -45,8 +46,9 @@ class UserController < ApplicationController
   def login_params
     params.require(:user).permit(:email, :password)
   end
+
   def user_param
-    params.permit(:name,:email,:password)
+    params.permit(:name, :email, :password)
   end
 
   def check_session

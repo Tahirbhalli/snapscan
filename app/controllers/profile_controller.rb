@@ -56,12 +56,12 @@ class ProfileController < ApplicationController
   end
 
   def transactions
-    @tran=Transactin.includes(:user).where(user_id: session[:current_user]).order('name ASC')
+    @tran = Transactin.includes(:user).where(user_id: session[:current_user]).order('name ASC')
   end
 
   def external
-    a=Transactin.includes(:user).where(user_id: session[:current_user])
-    @external =a.where.not(id: Groupmember.all.select('transactin_id')).order('name ASC')
+    a = Transactin.includes(:user).where(user_id: session[:current_user])
+    @external = a.where.not(id: Groupmember.all.select('transactin_id')).order('name ASC')
   end
 
   def groups
