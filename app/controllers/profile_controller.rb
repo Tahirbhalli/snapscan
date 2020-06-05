@@ -5,12 +5,12 @@ class ProfileController < ApplicationController
   end
 
   def new
-    @transac = Transaction.new
+    @transac = Transactin.new
   end
 
   def create
     @curent = User.find(session[:current_user])
-    @transac = @curent.transactions.create(name: params[:name], amount: params[:amount])
+    @transac = @curent.transactins.create(name: params[:name], amount: params[:amount])
     redirect_to profile_index_path
   end
 
@@ -21,16 +21,15 @@ class ProfileController < ApplicationController
   end
 
   def add
-    @tr = Transaction.all
+    @tr = Transactin.all
   end
 
   def added
-    if Groupmember.exists?(transaction_id: params[:t_id], group_id: params[:g_id])
-      obj = Groupmember.where(transaction_id: params[:t_id], group_id: params[:g_id])
+    if Groupmember.exists?(Transactin_id: params[:t_id], group_id: params[:g_id])
+      obj = Groupmember.where(Transactin_id: params[:t_id], group_id: params[:g_id])
       Groupmember.destroy(obj.ids)
-
     else
-      obj = Groupmember.new(transaction_id: params[:t_id], group_id: params[:g_id])
+      obj = Groupmember.new(transactin_id: params[:t_id], group_id: params[:g_id])
       obj.save
     end
     redirect_to all_groups_profile_path(session[:current_user])
@@ -48,7 +47,7 @@ class ProfileController < ApplicationController
   end
 
   def grouptrans
-    @result = Transaction.where(id: Groupmember.where(group_id: params[:id]).select('transaction_id'))
+    @result = Transactin.where(id: Groupmember.where(group_id: params[:id]).select('Transactin_id'))
   end
 
   def logout
@@ -57,11 +56,12 @@ class ProfileController < ApplicationController
   end
 
   def transactions
-    @tran = User.find(session[:current_user]).transactions
+    @tran=Transactin.includes(:user).where(user_id: session[:current_user]).order('name ASC')
   end
 
   def external
-    @external = User.find(session[:current_user]).transactions
+    a=Transactin.includes(:user).where(user_id: session[:current_user])
+    @external =a.where.not(id: Groupmember.all.select('transactin_id')).order('name ASC')
   end
 
   def groups
