@@ -8,13 +8,13 @@ class Account::GroupController < Account::BaseController
   end
 
   def create
-    if Group.exists?(name: params[:name])
+    if Group.exists?(name: group_param['name'])
       flash[:msg] = 'Group already exists'
-      render :new
+      redirect_to new_account_profile_group_path(session[:current_user])
     else
-      @curent = User.find(session[:current_user])
-      @new_group = @curent.groups.create(group_param)
-      redirect_to account_profile_group_index_path(session[:current_user])
+      # @curent = User.find(session[:current_user])
+      @new_group = current_user.groups.create(group_param)
+      redirect_to account_profile_index_path(session[:current_user])
     end
   end
 
@@ -23,12 +23,12 @@ class Account::GroupController < Account::BaseController
   end
 
   def join
-    res = Particpent.exists?(user_id: session[:current_user], group_id: params[:profile_id])
+    res = Particpent.exists?(user_id: session[:current_user], group_id: params[:group_id])
     if res
-      obj = Particpent.where(user_id: session[:current_user], group_id: params[:profile_id])
+      obj = Particpent.where(user_id: session[:current_user], group_id: params[:group_id])
       Particpent.destroy(obj.ids)
     else
-      Particpent.create(user_id: session[:current_user], group_id: params[:profile_id])
+      Particpent.create(user_id: session[:current_user], group_id: params[:group_id])
     end
     redirect_to account_profile_group_index_path(session[:current_user])
   end

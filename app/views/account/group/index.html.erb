@@ -19,7 +19,9 @@
         </a></td>
         <td>
         <a href="<%= account_profile_group_join_path(session[:current_user], item.id)%>" class="btn btn-success"><%= isjoined(session[:current_user],item.id)%></a>
+        <% if isjoined(session[:current_user],item.id) != 'join' %>
         <a href="<%=account_profile_group_add_path(session[:current_user],item.id)%>" class="btn btn-success">Add Transactions</a>
+        <%end%>
         </td>
       </tr>
       <%end%>

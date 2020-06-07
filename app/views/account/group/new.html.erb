@@ -5,12 +5,15 @@
     <div class="form-group">
     <%=f.text_field :name , class: 'w-25 mx-auto form-control',placeholder: 'enter the name', :required => true%>
     </div>
-    <%if !flash[:msg].nil?%>
-      <span class="alert alert-danger text-center"><%= flash[:msg] %></span>
-    <%end%>
+    
      <div class="form-group">
     <%= f.file_field :cover_pic,class: "w-25 mx-auto form-control", :required => true %>
     </div>
+    <%if !flash[:msg].nil?%>
+    <div class="form-group">
+      <span class="alert alert-danger text-center"><%= flash[:msg] %></span>
+    </div>
+    <%end%>
     <button type="submit" class="d-flex btn btn-primary mx-auto">Submit</button>
     <%end%>
   
