@@ -12,7 +12,6 @@ class Account::GroupController < Account::BaseController
       flash[:msg] = 'Group already exists'
       redirect_to new_account_profile_group_path(session[:current_user])
     else
-      # @curent = User.find(session[:current_user])
       @new_group = current_user.groups.create(group_param)
       redirect_to account_profile_index_path(session[:current_user])
     end
@@ -34,7 +33,7 @@ class Account::GroupController < Account::BaseController
   end
 
   def add
-    @tr = current_user.transactins.all # Transactin.all
+    @tr = current_user.transactins.all
   end
 
   def added
@@ -45,7 +44,7 @@ class Account::GroupController < Account::BaseController
       obj = Groupmember.new(transactin_id: params[:t_id], group_id: params[:group_id])
       obj.save
     end
-    redirect_to account_profile_group_index_path(session[:current_user])
+    redirect_to account_profile_index_path
   end
 
   private

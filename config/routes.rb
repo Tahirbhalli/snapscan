@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       resources :transactions,only: [:index,:new,:create] do
         collection do
           match '/external' => 'transactions#external', via:[:get]
+          match '/join' => 'transactions#join',via:[:get]
         end
       end
       resources :group,only: [:index,:new,:create] do

@@ -18,6 +18,10 @@ class Account::TransactionsController < Account::BaseController
     @external = a.where.not(id: Groupmember.all.select('transactin_id')).order('name ASC')
   end
 
+  def join
+    @groups = Group.all
+  end
+
   private
 
   def transaction_param
