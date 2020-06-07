@@ -16,7 +16,8 @@
   <body class="text-white">
   
     <% if !session[:current_user].nil?%>
-    <section class="bg-primary side-nav w-25">
+    <div class="w-100 row">
+    <section class="bg-primary side-nav col-lg-3 d-none d-lg-block d-xl-block">
        <a href="<%=profile_index_path%>">
             <div class="container-fluid text-center mb-4">    
                 <img src="<%= image_url('logo.jpeg') %>" alt="logo" class="pb-2 mx-auto d-block h-25 w-25 img-fluid rounded-circle">
@@ -36,15 +37,16 @@
         </ul>
         
     </section>
-    <section class="float-right w-75 bg-primary">
+    <section class="col-lg-9 col-12 ml-auto heigth-nav bg-primary">
     <div class="float-right p-3">
      <a href="<%= new_tansaction_profile_path(session[:current_user]) %>" class="badge font-weight-bold">Create Transaction</a>
      <a href="<%= new_group_profile_path(session[:current_user]) %>" class="badge font-weight-bold">Create Group</a>
      <a href="<%= logout_profile_index_path %>" class="badge font-weight-bold">Logout</a>
     </div>
     </section>
+    </div>
     <%end%>
-    <main class="col-9 float-right p-2">
+    <main class="col-lg-9 col-md-12 float-lg-right p-2">
       <%= yield %>
     </main>
     

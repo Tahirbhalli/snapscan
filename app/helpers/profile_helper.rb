@@ -19,7 +19,7 @@ module ProfileHelper
       grou = Group.where(id: obj.group_id).first
       image_tag(url_for(grou.cover_pic), class: 'img')
     else
-      'no photo'
+       link_to "Join Group", user_index_path, class: 'text-body badge btn btn-success'
     end
   end
 end

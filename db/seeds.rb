@@ -13,3 +13,9 @@ user=50.times{
     balance=123
     User.create(name: name,email: email,password: pass,balance: balance)
 }
+users=User.all
+users.each do |u|
+    20.times{
+        u.transactins.create(name: Faker::Name.unique.name)
+    }
+end

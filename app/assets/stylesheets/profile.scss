@@ -8,10 +8,8 @@ body {
 }
 
 .side-nav {
-    bottom: 0;
-    padding-top: 1rem;
-    position: absolute;
-    top: 0;
+    position: fixed!important;
+    height: 100%;
 }
 
 .pic {
