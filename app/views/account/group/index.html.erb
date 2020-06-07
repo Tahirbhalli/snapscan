@@ -1,0 +1,31 @@
+<div class="pt-3 container text-body">
+    <h4 class="text-center pt-3 pb-2 font-weight-bold text-capitalize"><%= session[:user_name] %> Groups</h4>
+  <table class="pt-3 table table-striped">
+    <thead>
+      <tr>
+        <th>Transactions</th>
+        <th>Date</th>
+        <th>Logo</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @groups.each do |item| %>
+      <tr>
+        <td><a href="<%= account_profile_group_transactions_path(session[:current_user],item.id)%>" class="text-body"><%= item.name%></a></td>
+        <td><a href="<%= account_profile_group_transactions_path(session[:current_user],item.id)%>" class="text-body"><%= item.created_at%></a></td>
+        
+        <td><a href="<%= account_profile_group_transactions_path(session[:current_user],item.id)%>" class="text-body"><img src="<%= url_for(item.cover_pic) if item.cover_pic.attached?%>" class="img"/>
+        </a></td>
+        <td>
+        <a href="<%= account_profile_group_join_path(session[:current_user], item.id)%>" class="btn btn-success"><%= isjoined(session[:current_user],item.id)%></a>
+        <a href="<%=account_profile_group_add_path(session[:current_user],item.id)%>" class="btn btn-success">Add Transactions</a>
+        </td>
+      </tr>
+      <%end%>
+    </tbody>
+  </table>
+  <div class="container">
+    <a href="<%= new_account_profile_group_path(session[:current_user]) %>" class="btn btn-primary badge text-capitalize text-center">new Group</a>
+  </div>
+</div>

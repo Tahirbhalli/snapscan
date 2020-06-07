@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Snapscan</title>
+    <title>Snap</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag :application, controller_name %>
 
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet" />
@@ -13,12 +13,12 @@
     <script src="https://kit.fontawesome.com/b124683f80.js" crossorigin="anonymous"></script>
   </head>
 
-  <body class="text-white">
+  <body class="text-white <%=controller_name%>">
   
-    <% if !session[:current_user].nil?%>
+  <% if !session[:current_user].nil?%>
     <div class="w-100 row">
     <section class="bg-primary side-nav col-lg-3 d-none d-lg-block d-xl-block">
-       <a href="<%=profile_index_path%>">
+       <a href="<%= account_profile_index_path%>">
             <div class="container-fluid text-center mb-4">    
                 <img src="<%= image_url('logo.jpeg') %>" alt="logo" class="pb-2 mx-auto d-block h-25 w-25 img-fluid rounded-circle">
                 <span class="text-white badge"><%= session[:user_name] %></span>
@@ -26,22 +26,25 @@
         </a>
         <ul class="nav flex-column text-center font-weight-bold">
            <li class="nav-item">
-             <a class="nav-link active" href="<%= all_transactions_profile_path(session[:current_user])%>">All my transactions</a>
+             <a class="nav-link active" href="<%= account_profile_transactions_path(session[:current_user]) %>">All My Transactions</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<%= external_transaction_profile_path(session[:current_user])%>">All my external transactions</a>
+              <a class="nav-link" href="<%= external_account_profile_transactions_path(session[:current_user]) %>">All My External transactions</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<%=all_groups_profile_path(session[:current_user])%>">All groups</a>
+              <a class="nav-link" href="<%= account_profile_group_index_path(session[:current_user]) %>">All Groups</a>
             </li>
         </ul>
         
     </section>
     <section class="col-lg-9 col-12 ml-auto heigth-nav bg-primary">
+    <div class="float-left p-3 d-none d-lg-none d-md-block d-sm-block">
+      <a href="#" class="badge font-weight-bold hamburger"><i class="fas fa-bars"></i></a>
+    </div>
     <div class="float-right p-3">
-     <a href="<%= new_tansaction_profile_path(session[:current_user]) %>" class="badge font-weight-bold">Create Transaction</a>
-     <a href="<%= new_group_profile_path(session[:current_user]) %>" class="badge font-weight-bold">Create Group</a>
-     <a href="<%= logout_profile_index_path %>" class="badge font-weight-bold">Logout</a>
+     <a href="<%= new_account_profile_transaction_path(session[:current_user]) %>" class="badge font-weight-bold">Create Transaction</a>
+     <a href="<%= new_account_profile_group_path(session[:current_user]) %>" class="badge font-weight-bold">Create Group</a>
+     <a href="<%= logout_account_profile_index_path %>" class="badge font-weight-bold">Logout</a>
     </div>
     </section>
     </div>

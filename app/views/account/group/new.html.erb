@@ -1,7 +1,7 @@
 <div class="container-fluid text-body mt-2">
     <h3 class="text-center font-weight-bold pb-4">Create new Group</h3>
     
-   <%= form_for @group, :url => create_group_profile_index_path do |f|%>
+   <%= form_for @group, :url => account_profile_group_index_path(session[:current_user]) do |f|%>
     <div class="form-group">
     <%=f.text_field :name , class: 'w-25 mx-auto form-control',placeholder: 'enter the name', :required => true%>
     </div>

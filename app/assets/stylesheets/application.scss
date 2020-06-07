@@ -13,22 +13,32 @@
  *= require_tree .
  *= require_self
  */
-a{
+body {
+    background-color: white!important;   
+}
+.side-nav {
+    position: fixed!important;
+    height: 100%;
+}
+a {
     text-decoration: none;
     color: #fff!important;
 }
-a:hover{
-    text-decoration: none;
+a:hover {
+    text-decoration: none!important;
 }
-li:first-child{
+li:first-child {
     border-top: 2px black solid;
 }
-li{
+li {
     border-bottom: 2px black solid;
 }
-li a:hover{
+li a:hover {
     color: black!important;
 }
-.heigth-nav{
+.heigth-nav {
     height: 56px;
+}
+.hamburger {
+    font-size: 20px;
 }

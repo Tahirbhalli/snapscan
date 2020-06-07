@@ -1,6 +1,6 @@
 <div class="container-fluid text-body mt-2">
     <h3 class="text-center font-weight-bold pb-4">Create Transaction</h3>
-<form action="<%= profile_index_path %>" method="POST" class="w-50 mx-auto">
+<form action="<%= account_profile_transactions_path(session[:current_user]) %>" method="POST" class="w-50 mx-auto">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <div class="form-group">
       <input name="name" type="text" class="form-control" required placeholder="Enter Name of transaction" id="name">
