@@ -39,14 +39,14 @@
     </section>
     <section class="col-lg-9 col-12 ml-auto heigth-nav bg-primary">
     <div class="dropdown float-left p-3 d-none d-lg-none d-md-block d-sm-block">
-          <img src="<%= image_url(session[:pic_url])%>" alt="profile picture" class="dr_pic">
+          <a href="<%= user_index_path%>"><img src="<%= image_url(session[:pic_url])%>" alt="profile picture" class="dr_pic"></a>
 
   <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
   <span class="caret"></span></button>
   <ul class="dropdown-menu" id="navItem">
-    <li><a class="nav-link active text-body" href="<%= account_profile_transactions_path(session[:current_user]) %>">All My Transactions</a></li>
-    <li><a class="nav-link active text-body" href="<%= external_account_profile_transactions_path(session[:current_user]) %>">All My External Transactions</a></li>
-    <li><a class="nav-link active text-body" href="<%= account_profile_group_index_path(session[:current_user]) %>">All Groups</a></li>
+    <li><a class="nav-link active text-body" href="<%= account_profile_transactions_path(session[:current_user]) %>">All My Transaction</a></li>
+    <li><a class="nav-link active text-body" href="<%= external_account_profile_transactions_path(session[:current_user]) %>">All My External Transaction</a></li>
+    <li><a class="nav-link active text-body" href="<%= account_profile_group_index_path(session[:current_user]) %>">All Group</a></li>
   </ul>
 </div>
     <div class="float-right p-3">

@@ -31,6 +31,7 @@ describe 'Post controller and view spec', type: :feature do
     click_link 'All Groups'
     click_link 'Add Transactions'
     click_link 'Join'
+    click_link 'All Groups'
     click_link 'home'
     expect(page).to have_content 'abc'
   end
