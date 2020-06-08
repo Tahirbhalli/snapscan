@@ -8,8 +8,12 @@ class Account::TransactionsController < Account::BaseController
   end
 
   def create
-    @curent = User.find(session[:current_user])
-    @transac = @curent.transactins.create(transaction_param)
+    if current_user.transactins.exists?(transaction_param)
+      flash[:msg] = 'esists'
+    else
+      @transac = current_user.transactins.create(transaction_param)
+
+    end
     redirect_to account_profile_transactions_path(session[:current_user])
   end
 
