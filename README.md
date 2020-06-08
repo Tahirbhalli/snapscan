@@ -1,4 +1,5 @@
 # SnapScan
+![screenshot](./screenshot.png)
 - This is a website for managing you expenses   
 # What it does
 - Create Transaction
@@ -8,6 +9,10 @@
 - Ruby
 - Ruby on Rails
 - VSCode
+
+## Live Demo
+
+[Live Demo Link](https://thawing-island-06598.herokuapp.com/)
 
 ## Author
 
