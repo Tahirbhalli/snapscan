@@ -10,6 +10,9 @@
 - Ruby on Rails
 - VSCode
 
+## N+1 Problem
+
+Solved with Eager Load 
 
 ## Live Demo
 
