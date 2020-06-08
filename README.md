@@ -10,9 +10,14 @@
 - Ruby on Rails
 - VSCode
 
+
 ## Live Demo
 
 [Live Demo Link](https://shrouded-dawn-33211.herokuapp.com/)
+
+## Presentation
+
+[presentation](https://www.loom.com/share/0f8c98c20e4945b695b456be0aef070f)
 
 ## Author
 

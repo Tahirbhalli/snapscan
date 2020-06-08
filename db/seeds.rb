@@ -16,6 +16,6 @@ user=50.times{
 users=User.all
 users.each do |u|
     20.times{
-        u.transactins.create(name: Faker::Name.unique.name)
+        u.transactins.create(name: Faker::Name.unique.name,amount: 15)
     }
 end
