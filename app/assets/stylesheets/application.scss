@@ -13,3 +13,36 @@
  *= require_tree .
  *= require_self
  */
+body {
+    background-color: white!important;   
+}
+.side-nav {
+    height: 100%;
+    position: fixed!important;
+}
+a {
+    color: #fff!important;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none!important;
+}
+li:first-child {
+    border-top: 2px black solid;
+}
+li {
+    border-bottom: 2px black solid;
+}
+li a:hover {
+    color: black!important;
+}
+.heigth-nav {
+    height: 56px;
+}
+.hamburger {
+    font-size: 20px;
+}
+.dr_pic {
+    height: 30px;
+    width: 30px;
+}

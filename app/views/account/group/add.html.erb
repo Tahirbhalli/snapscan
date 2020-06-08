@@ -1,0 +1,20 @@
+<div class="pt-3 container text-body">
+    <h4 class="text-center pt-3 pb-2 font-weight-bold text-capitalize"><%= session[:user_name] %> Groups</h4>
+    <table class="pt-3 table table-striped">
+    <thead>
+      <tr>
+        <th>Transactions Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tr.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= link_to(groupsmeb(params[:group_id],item.id), account_profile_group_added_path(session[:current_user],params[:group_id],t_id: item.id),method: :post,class: 'text-body badge') %></td>
+        <!--td ><a href="<%= account_profile_group_added_path(session[:current_user],params[:group_id],:t_id => item.id) %>" class="text-body badge"><%= groupsmeb(params[:group_id],item.id) %></a></td-->
+      </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>

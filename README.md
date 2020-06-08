@@ -1,24 +1,43 @@
-# README
+# SnapScan
+![screenshot](./screenshot.png)
+- This is a website for managing you expenses   
+# What it does
+- Create Transaction
+- Create Group
+- Add Transaction in groups
+# Built With
+- Ruby
+- Ruby on Rails
+- VSCode
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## N+1 Problem
 
-Things you may want to cover:
+Solved with Eager Load 
 
-* Ruby version
+## Live Demo
 
-* System dependencies
+[Live Demo Link](https://shrouded-dawn-33211.herokuapp.com/)
 
-* Configuration
+## Presentation
 
-* Database creation
+[presentation](https://www.loom.com/share/0f8c98c20e4945b695b456be0aef070f)
 
-* Database initialization
+## Author
 
-* How to run the test suite
+👤 **Tahir Ahmad**
 
-* Services (job queues, cache servers, search engines, etc.)
+- Github: [@tahirbhalli](https://github.com/Tahirbhalli)
+- Twitter: [@tahirbhalli](https://twitter.com/tahirbhalli)
+- Linkedin: [Tahir Ahmad](https://www.linkedin.com/in/tahir-ahmad-483035164/)
 
-* Deployment instructions
+# 🤝 Contributing
+Contributions, issues and feature requests are welcome!
 
-* ...
+# Show your support
+Give a ⭐️ if you like this project!
+
+📝 License
+
+Check out my stories on medium to see what I'm talking about! Follow me on Instagram and Twitter to see what I am up to!
+
+Enjoy!

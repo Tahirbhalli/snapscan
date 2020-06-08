@@ -1,0 +1,24 @@
+<div class="pt-3 container text-body">
+    <h4 class="text-center pt-3 pb-2 font-weight-bold text-capitalize"><%= session[:user_name] %> external Transactions</h4>
+    <table class="pt-3 table table-striped">
+    <thead>
+      <tr>
+        <th>Transactions</th>
+        <th>Amount</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%@external.each do |item|%>
+      <tr>
+        <td><%= item.name%></td>
+        <td><%=item.amount%></td>
+        <td><%= item.created_at%></td>
+      </tr>
+      <%end%>
+    </tbody>
+  </table>
+  <div class="btn btn-primary w-25">
+    <a href="<%= new_account_profile_transaction_path(session[:current_user]) %>" class="badge text-capitalize text-center">new Transactions</a>
+  </div>
+</div>
