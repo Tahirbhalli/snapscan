@@ -9,12 +9,12 @@ class Account::TransactionsController < Account::BaseController
 
   def create
     if current_user.transactins.exists?(transaction_param)
-      flash[:msg] = 'esists'
+      flash[:msg] = 'Transaction exists'
+      new_account_profile_transaction_path(session[:current_user])
     else
       @transac = current_user.transactins.create(transaction_param)
-
+      redirect_to account_profile_transactions_path(session[:current_user])
     end
-    redirect_to account_profile_transactions_path(session[:current_user])
   end
 
   def external

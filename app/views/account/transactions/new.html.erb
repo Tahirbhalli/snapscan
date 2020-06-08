@@ -9,7 +9,9 @@
       <input name="amount" type="number" class="form-control" required placeholder="Enter the amount" id="amount">
     </div>
     <%if !flash[:msg].nil?%>
+    <div class="form-group">
     <span class="alert alert-danger text-center"><%=flash[:msg]%></span>
+    </div>
     <%end%>
     <br>
     <button type="submit" name='submit' class="d-flex btn btn-primary mx-auto">Submit</button>
