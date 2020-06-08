@@ -16,8 +16,8 @@
   <body class="text-white <%=controller_name%>">
   
   <% if !session[:current_user].nil?%>
-    <div class="w-100 row">
-    <section class="bg-primary side-nav col-lg-3 d-none d-lg-block d-xl-block">
+    <div class="w-100 row dm">
+    <section class="bg-primary side-nav col-lg-3 col-3 d-none d-lg-block d-xl-block">
        <a href="<%= account_profile_index_path%>">
             <div class="container-fluid text-center mb-4">    
                 <img src="<%= image_url('logo.jpeg') %>" alt="logo" class="pb-2 mx-auto d-block h-25 w-25 img-fluid rounded-circle">
@@ -38,9 +38,17 @@
         
     </section>
     <section class="col-lg-9 col-12 ml-auto heigth-nav bg-primary">
-    <div class="float-left p-3 d-none d-lg-none d-md-block d-sm-block">
-      <a href="#" class="badge font-weight-bold hamburger"><i class="fas fa-bars"></i></a>
-    </div>
+    <div class="dropdown float-left p-3 d-none d-lg-none d-md-block d-sm-block">
+          <img src="<%= image_url(session[:pic_url])%>" alt="profile picture" class="dr_pic">
+
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu" id="navItem">
+    <li><a class="nav-link active text-body" href="<%= account_profile_transactions_path(session[:current_user]) %>">All My Transactions</a></li>
+    <li><a class="nav-link active text-body" href="<%= external_account_profile_transactions_path(session[:current_user]) %>">All My External Transactions</a></li>
+    <li><a class="nav-link active text-body" href="<%= account_profile_group_index_path(session[:current_user]) %>">All Groups</a></li>
+  </ul>
+</div>
     <div class="float-right p-3">
      <a href="<%= new_account_profile_transaction_path(session[:current_user]) %>" class="badge font-weight-bold">Create Transaction</a>
      <a href="<%= new_account_profile_group_path(session[:current_user]) %>" class="badge font-weight-bold">Create Group</a>

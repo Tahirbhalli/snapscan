@@ -17,12 +17,12 @@ body {
     background-color: white!important;   
 }
 .side-nav {
-    position: fixed!important;
     height: 100%;
+    position: fixed!important;
 }
 a {
-    text-decoration: none;
     color: #fff!important;
+    text-decoration: none;
 }
 a:hover {
     text-decoration: none!important;
@@ -41,4 +41,8 @@ li a:hover {
 }
 .hamburger {
     font-size: 20px;
+}
+.dr_pic {
+    height: 30px;
+    width: 30px;
 }
