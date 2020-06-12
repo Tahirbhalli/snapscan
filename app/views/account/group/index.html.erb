@@ -1,3 +1,5 @@
+<%= render partial:'account/shared/nav' %>
+<main class="col-lg-9 col-md-12 float-lg-right p-2">
 <div class="pt-3 container text-body">
     <h4 class="text-center pt-3 pb-2 font-weight-bold text-capitalize"><%= session[:user_name] %> Groups</h4>
   <table class="pt-3 table table-striped">
@@ -31,3 +33,4 @@
     <a href="<%= new_account_profile_group_path(session[:current_user]) %>" class="btn btn-primary badge text-capitalize text-center">new Group</a>
   </div>
 </div>
+</main>
